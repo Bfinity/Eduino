@@ -43,7 +43,7 @@ public class TeleOpDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-    	double fwdBackCommand = Robot.oi.driveStick.getY();
+    	double fwdBackCommand = -Robot.oi.driveStick.getY();
     	double leftRightCommand = Robot.oi.driveStick.getX();
     	double yawCommand = Robot.oi.driveStick.getRawAxis(4); //axis 4 is the LR axis of the Right stick
     	
