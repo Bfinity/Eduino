@@ -11,6 +11,8 @@
 
 package org.usfirst.frc4680.Eduino.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc4680.Eduino.Robot;
 import org.usfirst.frc4680.Eduino.subsystems.DriveTrain;
 
@@ -57,6 +59,10 @@ public class TeleOpDrive extends Command {
 			Robot.driveTrain.teleopDrive(fwdBackCommand, leftRightCommand, yawCommand);
 			heading = Robot.driveTrain.getHeading();
 		}
+		
+		SmartDashboard.putNumber("heading", Robot.driveTrain.getHeading());
+		SmartDashboard.putNumber("fwdBackDistance", Robot.driveTrain.getFwdBwdDistance());
+		SmartDashboard.putNumber("leftRightDistance", Robot.driveTrain.getLeftRightDistance());
     }
 
     // Make this return true when this Command no longer needs to run execute()
