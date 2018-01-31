@@ -47,7 +47,10 @@ public class TeleOpDrive extends Command {
     	double leftRightCommand = Robot.oi.driveStick.getX();
     	double yawCommand = Robot.oi.driveStick.getRawAxis(4); //axis 4 is the LR axis of the Right stick
     	
-    	Robot.driveTrain.teleopDrive(fwdBackCommand, leftRightCommand,yawCommand);
+    	double scaledYaw = yawCommand * Math.abs(yawCommand);
+    	double scaledfwdBack = fwdBackCommand * Math.abs(fwdBackCommand);
+    	double scaledleftRight = leftRightCommand * Math.abs(leftRightCommand);
+    	Robot.driveTrain.teleopDrive(scaledfwdBack, scaledleftRight, scaledYaw);
     	
     }
 
