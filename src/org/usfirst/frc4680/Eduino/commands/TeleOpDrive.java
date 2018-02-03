@@ -52,11 +52,15 @@ public class TeleOpDrive extends Command {
 	    	double fwdBackCommand = -Robot.oi.driveStick.getY();
 	    	double leftRightCommand = Robot.oi.driveStick.getX();
 	    	double yawCommand = Robot.oi.driveStick.getRawAxis(4); //axis 4 is the LR axis of the Right stick
+	    	
+	    	double scaledYaw = yawCommand * Math.abs(yawCommand);
+	    	double scaledfwdBack = fwdBackCommand * Math.abs(fwdBackCommand);
+	    	double scaledleftRight = leftRightCommand * Math.abs(leftRightCommand);
     	
 		if(Robot.oi.driveStick.getRawButton(1)) {
-			Robot.driveTrain.keepHeadingDrive(fwdBackCommand, leftRightCommand, heading);
+			Robot.driveTrain.keepHeadingDrive(scaledfwdBack, scaledleftRight, heading);
 		} else {
-			Robot.driveTrain.teleopDrive(fwdBackCommand, leftRightCommand, yawCommand);
+			Robot.driveTrain.teleopDrive(scaledfwdBack, scaledleftRight, scaledYaw);
 			heading = Robot.driveTrain.getHeading();
 		}
 		
