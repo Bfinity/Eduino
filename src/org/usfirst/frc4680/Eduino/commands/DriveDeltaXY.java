@@ -14,6 +14,7 @@ public class DriveDeltaXY extends Command {
 	double finalY;
 	double deltaX;
 	double deltaY;
+	double heading;
 	
     public DriveDeltaXY() {
         // Use requires() here to declare subsystem dependencies
@@ -30,6 +31,7 @@ public class DriveDeltaXY extends Command {
     protected void initialize() {
 		finalX = Robot.driveTrain.getFwdBwdDistance() + deltaX;
 		finalY = Robot.driveTrain.getLeftRightDistance() + deltaY;
+		heading = Robot.driveTrain.getHeading();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -40,7 +42,7 @@ public class DriveDeltaXY extends Command {
     		double speedX = DriveTrain.chooseSpeed(remainingX);
     		double speedY = DriveTrain.chooseSpeed(remainingY);
     		
-    		Robot.driveTrain.teleopDrive(speedX, speedY, 0.0);
+    		Robot.driveTrain.keepHeadingDrive(speedX, speedY, heading);
     }
 
     // Make this return true when this Command no longer needs to run execute()
