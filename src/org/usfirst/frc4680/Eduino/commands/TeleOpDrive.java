@@ -64,7 +64,17 @@ public class TeleOpDrive extends Command {
 			heading = Robot.driveTrain.getHeading();
 		}
 		
-		SmartDashboard.putNumber("heading", Robot.driveTrain.getHeading());
+		if(Robot.oi.manipulatorStick.getRawButtonPressed(5)) {
+			Robot.grabber.open();
+		}
+		
+		if(Robot.oi.manipulatorStick.getRawButtonPressed(6)) {
+			Robot.grabber.close();
+		}
+		
+		
+		
+		SmartDashboard.putNumber("heading", heading);
 		SmartDashboard.putNumber("fwdBackDistance", Robot.driveTrain.getFwdBwdDistance());
 		SmartDashboard.putNumber("leftRightDistance", Robot.driveTrain.getLeftRightDistance());
     }

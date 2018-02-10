@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.Spark;
@@ -47,7 +48,7 @@ public class RobotMap {
     public static Encoder longArmLongArmEncoder;
     public static SpeedController wristWristMotorVictorSP;
     public static Encoder wristWristEncoders;
-    public static SpeedController grabberGrabberMotorVictorSP;
+    public static DoubleSolenoid grabberGrabberValve;
     public static DigitalInput grabberCubeIsInPlaceSwitch;
     public static DigitalInput climberClimberLimitSwitch;
     public static SpeedController climberClimberMotorVictorSP;
@@ -94,9 +95,8 @@ public class RobotMap {
         LiveWindow.addSensor("Wrist", "WristEncoders", wristWristEncoders);
         wristWristEncoders.setDistancePerPulse(1.0);
         wristWristEncoders.setPIDSourceType(PIDSourceType.kRate);
-        grabberGrabberMotorVictorSP = new Spark(2);
-        LiveWindow.addActuator("Grabber", "GrabberMotorVictorSP", (Spark) grabberGrabberMotorVictorSP);
-        grabberGrabberMotorVictorSP.setInverted(false);
+        grabberGrabberValve = new DoubleSolenoid(0, 1);
+        LiveWindow.add(grabberGrabberValve);
         grabberCubeIsInPlaceSwitch = new DigitalInput(1);
         LiveWindow.addSensor("Grabber", "CubeIsInPlaceSwitch", grabberCubeIsInPlaceSwitch);
         

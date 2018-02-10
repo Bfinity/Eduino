@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveDeltaXY extends Command {
 	
 	public static final double maxSpeed   = 1.0;
-	public static final double minSpeed   = 0.3;
+	public static final double minSpeed   = 0.2;
 	public static final double rampUpTime = 1.0;	
 	public static final double rampDownDistance = 36.0;
 	public static final double closeEnough = 1.0;
