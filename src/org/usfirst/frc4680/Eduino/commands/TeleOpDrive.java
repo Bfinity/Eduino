@@ -73,10 +73,15 @@ public class TeleOpDrive extends Command {
 		}
 		
 		
+		double longArmInput = Robot.oi.manipulatorStick.getRawAxis(1);
+		double scaledLongArmInput = longArmInput * Math.abs(longArmInput);
+		Robot.longArm.move(scaledLongArmInput);
 		
-		SmartDashboard.putNumber("heading", heading);
-		SmartDashboard.putNumber("fwdBackDistance", Robot.driveTrain.getFwdBwdDistance());
-		SmartDashboard.putNumber("leftRightDistance", Robot.driveTrain.getLeftRightDistance());
+		double wristInput = Robot.oi.manipulatorStick.getRawAxis(5);
+		double scaledWristInput = wristInput * Math.abs(wristInput);
+		Robot.wrist.move(scaledWristInput);
+		
+		
     }
 
     // Make this return true when this Command no longer needs to run execute()

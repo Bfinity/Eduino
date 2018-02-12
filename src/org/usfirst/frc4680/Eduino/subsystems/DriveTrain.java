@@ -109,7 +109,9 @@ public class DriveTrain extends Subsystem {
     @Override
     public void periodic() {
         // Put code here to be run every loop
-
+		SmartDashboard.putNumber("heading", getHeading());
+		SmartDashboard.putNumber("fwdBackDistance", Robot.driveTrain.getFwdBwdDistance());
+		SmartDashboard.putNumber("leftRightDistance", Robot.driveTrain.getLeftRightDistance());
     }
 
     // Put methods for controlling this subsystem

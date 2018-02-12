@@ -44,9 +44,15 @@ public class RobotMap {
     public static MecanumDrive driveTrainMecanumDrive1;
     public static ADXRS450_Gyro driveTrainGyro;
     public static DigitalInput driveTrainFrontBumperContactSwitch;
-    public static SpeedController longArmLongArmMotorVictorSP;
-    public static Encoder longArmLongArmEncoder;
-    public static SpeedController wristWristMotorVictorSP;
+    public static SpeedController longArmLongArmMotorVictorSP1;
+    public static SpeedController longArmLongArmMotorVictorSP2;
+    public static SpeedController longArmLongArmMotorVictorSP3;
+    public static SpeedController longArmLongArmMotorVictorSP4;
+    public static SpeedController longArmLongArmMotorVictorSP5;
+    public static SpeedController longArmLongArmMotorVictorSP6;
+    public static DigitalInput longArmLongArmEncoder;
+    public static SpeedController wristWristMotorVictorSP8;
+    public static SpeedController wristWristMotorVictorSP9;
     public static Encoder wristWristEncoders;
     public static DoubleSolenoid grabberGrabberValve;
     public static DigitalInput grabberCubeIsInPlaceSwitch;
@@ -81,29 +87,26 @@ public class RobotMap {
         driveTrainFrontBumperContactSwitch = new DigitalInput(0);
         LiveWindow.addSensor("DriveTrain", "FrontBumperContactSwitch", driveTrainFrontBumperContactSwitch);
         
-        longArmLongArmMotorVictorSP = new VictorSP(0);
-        LiveWindow.addActuator("LongArm", "LongArmMotorVictorSP", (VictorSP) longArmLongArmMotorVictorSP);
-        longArmLongArmMotorVictorSP.setInverted(false);
-        longArmLongArmEncoder = new Encoder(5, 6, false, EncodingType.k4X);
-        LiveWindow.addSensor("LongArm", "LongArmEncoder", longArmLongArmEncoder);
-        longArmLongArmEncoder.setDistancePerPulse(1.0);
-        longArmLongArmEncoder.setPIDSourceType(PIDSourceType.kRate);
-        wristWristMotorVictorSP = new VictorSP(1);
-        LiveWindow.addActuator("Wrist", "WristMotorVictorSP", (VictorSP) wristWristMotorVictorSP);
-        wristWristMotorVictorSP.setInverted(false);
+        longArmLongArmMotorVictorSP1 = new VictorSP(1);
+        longArmLongArmMotorVictorSP2 = new VictorSP(2);
+        longArmLongArmMotorVictorSP3 = new VictorSP(3);
+        longArmLongArmMotorVictorSP4 = new VictorSP(4);
+        longArmLongArmMotorVictorSP5 = new VictorSP(5);
+        longArmLongArmMotorVictorSP6 = new VictorSP(6);
+        longArmLongArmEncoder = new DigitalInput(5);
+        wristWristMotorVictorSP8 = new VictorSP(8);
+        wristWristMotorVictorSP9 = new VictorSP(9);
         wristWristEncoders = new Encoder(3, 4, false, EncodingType.k4X);
-        LiveWindow.addSensor("Wrist", "WristEncoders", wristWristEncoders);
         wristWristEncoders.setDistancePerPulse(1.0);
         wristWristEncoders.setPIDSourceType(PIDSourceType.kRate);
         grabberGrabberValve = new DoubleSolenoid(0, 1);
         LiveWindow.add(grabberGrabberValve);
         grabberCubeIsInPlaceSwitch = new DigitalInput(1);
-        LiveWindow.addSensor("Grabber", "CubeIsInPlaceSwitch", grabberCubeIsInPlaceSwitch);
         
         climberClimberLimitSwitch = new DigitalInput(2);
         LiveWindow.addSensor("Climber", "ClimberLimitSwitch", climberClimberLimitSwitch);
         
-        climberClimberMotorVictorSP = new VictorSP(3);
+        climberClimberMotorVictorSP = new VictorSP(0);
         LiveWindow.addActuator("Climber", "ClimberMotorVictorSP", (VictorSP) climberClimberMotorVictorSP);
         climberClimberMotorVictorSP.setInverted(false);
 
