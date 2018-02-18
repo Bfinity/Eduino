@@ -78,12 +78,12 @@ public class LongArm extends Subsystem {
     			encoderPrevious = encoderFlag;
     		}
 
-    		longArmMotorVictorSP1.set(speed);
-    		longArmMotorVictorSP2.set(speed);
-    		longArmMotorVictorSP3.set(speed);
-    		longArmMotorVictorSP4.set(speed);
-    		longArmMotorVictorSP5.set(speed);
-    		longArmMotorVictorSP6.set(speed);
+    		longArmMotorVictorSP1.set(-speed);
+    		longArmMotorVictorSP2.set(-speed);
+    		longArmMotorVictorSP3.set(-speed);
+    		longArmMotorVictorSP4.set(-speed);
+    		longArmMotorVictorSP5.set(-speed);
+    		longArmMotorVictorSP6.set(-speed);
     		
     		SmartDashboard.putNumber("LongArm Position", position);
 }

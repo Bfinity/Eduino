@@ -53,7 +53,7 @@ public class RobotMap {
     public static DigitalInput longArmLongArmEncoder;
     public static SpeedController wristWristMotorVictorSP8;
     public static SpeedController wristWristMotorVictorSP9;
-    public static Encoder wristWristEncoders;
+    public static DigitalInput wristWristEncoder;
     public static DoubleSolenoid grabberGrabberValve;
     public static DigitalInput grabberCubeIsInPlaceSwitch;
     public static DigitalInput climberClimberLimitSwitch;
@@ -96,9 +96,7 @@ public class RobotMap {
         longArmLongArmEncoder = new DigitalInput(5);
         wristWristMotorVictorSP8 = new VictorSP(8);
         wristWristMotorVictorSP9 = new VictorSP(9);
-        wristWristEncoders = new Encoder(3, 4, false, EncodingType.k4X);
-        wristWristEncoders.setDistancePerPulse(1.0);
-        wristWristEncoders.setPIDSourceType(PIDSourceType.kRate);
+        wristWristEncoder = new DigitalInput(6);
         grabberGrabberValve = new DoubleSolenoid(0, 1);
         LiveWindow.add(grabberGrabberValve);
         grabberCubeIsInPlaceSwitch = new DigitalInput(1);
