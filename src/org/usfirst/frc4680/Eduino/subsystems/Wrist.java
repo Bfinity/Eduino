@@ -68,7 +68,7 @@ public class Wrist extends Subsystem {
 		boolean encoderFlag = wristEncoder.get();
 		SmartDashboard.putBoolean("WristEncoderFlag", encoderFlag);
 		if(encoderFlag ^ encoderPrevious){
-			position += Math.signum(speed);
+			position += (speed > 0) ? 1 : -1;
 			encoderPrevious = encoderFlag;
 		}
 

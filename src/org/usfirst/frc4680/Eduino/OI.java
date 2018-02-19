@@ -68,19 +68,17 @@ public class OI {
         manipulatorStick = new Joystick(1);
         floorHeightButton  = new JoystickButton(manipulatorStick, 1);
         switchHeightButton = new JoystickButton(manipulatorStick, 2);
-        tuckArmButton      = new JoystickButton(manipulatorStick, 3);
+        //tuckArmButton      = new JoystickButton(manipulatorStick, 3);
         scaleHeightButton  = new JoystickButton(manipulatorStick, 4);
         
         floorHeightButton.whenPressed(new LongArmPosition(0));        
-        switchHeightButton.whenPressed(new LongArmPosition(25));
-        tuckArmButton.whenPressed(new LongArmPosition(0));        
-        scaleHeightButton.whenPressed(new LongArmPosition(85));
+        switchHeightButton.whenPressed(new LongArmPosition(70));
+        //tuckArmButton.whenPressed(new LongArmPosition(0));        
+        scaleHeightButton.whenPressed(new LongArmPosition(130));
         
         driveStick = new Joystick(0);
         
         // SmartDashboard Buttons
-        SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
-        SmartDashboard.putData("TeleOpDrive", new TeleOpDrive());
         SmartDashboard.putData("CrossLineAndStop", new CrossLineAndStop());
         SmartDashboard.putData("PlaceCubeOnSwitch", new PlaceCubeOnSwitch());
         SmartDashboard.putData("PlaceCubeOnScale", new PlaceCubeOnScale());

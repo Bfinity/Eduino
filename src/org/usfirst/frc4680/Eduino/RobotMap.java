@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDSourceType;
@@ -51,6 +52,8 @@ public class RobotMap {
     public static SpeedController longArmLongArmMotorVictorSP5;
     public static SpeedController longArmLongArmMotorVictorSP6;
     public static DigitalInput longArmLongArmEncoder;
+    public static DigitalInput longArmEncoderDirectionInput;
+    public static DigitalOutput longArmEncoderDirectionOutput;
     public static SpeedController wristWristMotorVictorSP8;
     public static SpeedController wristWristMotorVictorSP9;
     public static DigitalInput wristWristEncoder;
@@ -93,6 +96,9 @@ public class RobotMap {
         longArmLongArmMotorVictorSP4 = new VictorSP(4);
         longArmLongArmMotorVictorSP5 = new VictorSP(5);
         longArmLongArmMotorVictorSP6 = new VictorSP(6);
+        longArmLongArmEncoder = new DigitalInput(5);
+        longArmEncoderDirectionInput = new DigitalInput(10);
+        longArmEncoderDirectionOutput = new DigitalOutput(11);
         longArmLongArmEncoder = new DigitalInput(5);
         wristWristMotorVictorSP8 = new VictorSP(8);
         wristWristMotorVictorSP9 = new VictorSP(9);
