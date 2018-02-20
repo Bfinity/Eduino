@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DigitalOutput;
+import edu.wpi.first.wpilibj.DigitalSource;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -46,9 +47,18 @@ public class LongArm extends Subsystem {
 
     	double speed;
     	Counter counter;
+    	Encoder encoder;
     
     public LongArm() {
-    		counter = new Counter(EncodingType.k2X, longArmEncoder, encoderDirectionInput, false);
+    		//counter = new Counter(EncodingType.k2X, longArmEncoder, encoderDirectionInput, false);
+    		counter = new Counter(Counter.Mode.kExternalDirection);
+    		counter.setUpSource(longArmEncoder);
+    		counter.setDownSource(encoderDirectionInput);
+    		counter.setExternalDirectionMode();
+    	
+//    		encoder = new Encoder(longArmEncoder, encoderDirectionInput,
+//    							  false, EncodingType.k2X); 
+    		
     		speed = 0.0;
     		encoderDirectionOutput.set(false); // count down by default
     	}
@@ -68,7 +78,10 @@ public class LongArm extends Subsystem {
     public void periodic() {
         // Put code here to be run every loop
     		
-    		SmartDashboard.putNumber("LongArm Position", getPosition());
+    		SmartDashboard.putNumber("LongArm Position", (double)getPosition());
+    		SmartDashboard.putBoolean("encoder inc", longArmEncoder.get());
+    		SmartDashboard.putBoolean("encoder dir", encoderDirectionInput.get());
+    		SmartDashboard.putBoolean("encoder dir src", encoderDirectionOutput.get());
     }
 
     // Put methods for controlling this subsystem

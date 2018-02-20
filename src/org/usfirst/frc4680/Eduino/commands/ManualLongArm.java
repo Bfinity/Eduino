@@ -20,7 +20,7 @@ public class ManualLongArm extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		double longArmInput = Robot.oi.manipulatorStick.getRawAxis(1);
+		double longArmInput = -Robot.oi.manipulatorStick.getRawAxis(1);
 		double scaledLongArmInput = longArmInput * Math.abs(longArmInput);
 		Robot.longArm.move(scaledLongArmInput);
     }

@@ -70,16 +70,16 @@ public class DriveTrain extends Subsystem {
     }
     
     public double getFwdBwdDistance(){
-	    	int countR = cANTalonFrontRight.getSensorCollection().getQuadraturePosition();
-	    	int countL = -cANTalonFrontLeft.getSensorCollection().getQuadraturePosition();
+	    	int countR = cANTalonBackRight.getSensorCollection().getQuadraturePosition();
+	    	int countL = -cANTalonBackLeft.getSensorCollection().getQuadraturePosition();
 	    	
 	    	double dist = (countL + countR)/2 * inchesPerEncCountFB;
 	    	return dist;
     }
     
     public double getLeftRightDistance(){
-	    	int countR = cANTalonFrontRight.getSensorCollection().getQuadraturePosition();
-	    	int countL = cANTalonFrontLeft.getSensorCollection().getQuadraturePosition();
+	    	int countR = cANTalonBackRight.getSensorCollection().getQuadraturePosition();
+	    	int countL = cANTalonBackLeft.getSensorCollection().getQuadraturePosition();
 
 	    	double dist = - (countL + countR)/2 * inchesPerEncCountLR;
 	    	return dist;

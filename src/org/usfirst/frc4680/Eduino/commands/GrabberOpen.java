@@ -7,27 +7,25 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ManualWrist extends Command {
+public class GrabberOpen extends Command {
 
-    public ManualWrist() {
+    public GrabberOpen() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.wrist);
+        requires(Robot.grabber);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    		Robot.grabber.open();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		double wristInput = Robot.oi.manipulatorStick.getRawAxis(5);
-		double scaledWristInput = wristInput * Math.abs(wristInput);
-		Robot.wrist.move(scaledWristInput);    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

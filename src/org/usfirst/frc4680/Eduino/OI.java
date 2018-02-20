@@ -71,10 +71,10 @@ public class OI {
         //tuckArmButton      = new JoystickButton(manipulatorStick, 3);
         scaleHeightButton  = new JoystickButton(manipulatorStick, 4);
         
-        floorHeightButton.whenPressed(new LongArmPosition(0));        
-        switchHeightButton.whenPressed(new LongArmPosition(70));
+        floorHeightButton.whenPressed(new LongArmPosition(LongArmPosition.FLOOR_HEIGHT));        
+        switchHeightButton.whenPressed(new LongArmPosition(LongArmPosition.SWITCH_HEIGHT));
         //tuckArmButton.whenPressed(new LongArmPosition(0));        
-        scaleHeightButton.whenPressed(new LongArmPosition(130));
+        scaleHeightButton.whenPressed(new LongArmPosition(LongArmPosition.SCALE_HEIGHT));
         
         driveStick = new Joystick(0);
         
