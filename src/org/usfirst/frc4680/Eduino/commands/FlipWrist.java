@@ -7,29 +7,52 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class GrabberOpen extends Command {
+public class FlipWrist extends Command {
 
-    public GrabberOpen() {
+	double startPosition;
+	double finishPosition;
+	int step = 0;
+	
+    public FlipWrist() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.grabber);
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    		Robot.grabber.open();
+    	startPosition = Robot.driveTrain.getFwdBwdDistance();
+    	finishPosition = startPosition + 14;
+    	step = 0;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(step == 0) {
+    		Robot.driveTrain.keepHeadingDrive(1.0, 0.0, 0);
+    		if(Robot.driveTrain.getFwdBwdDistance() > finishPosition) {
+    			step = 1;
+    		}
+    	} else if(step == 1) {
+    		Robot.driveTrain.keepHeadingDrive(-.3, 0, 0);
+	    	if(Robot.driveTrain.getFwdBwdDistance()< 1)	{
+	    		Robot.driveTrain.stop();
+	    		step = 2;
+	    	}
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        if(step > 1) {
+        	return true;
+        } else {
+        	return false;
+        }
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.driveTrain.stop();
     }
 
     // Called when another command which requires one or more of the same

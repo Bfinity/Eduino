@@ -59,11 +59,11 @@ public class Grabber extends Subsystem {
     // here. Call these from Commands.
 
     public void open() {
-		grabberValve.set(DoubleSolenoid.Value.kForward);
+		grabberValve.set(DoubleSolenoid.Value.kReverse);
     }
 
     public void close() {
-		grabberValve.set(DoubleSolenoid.Value.kReverse);
+		grabberValve.set(DoubleSolenoid.Value.kForward);
     }
 }
 

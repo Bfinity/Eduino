@@ -21,7 +21,6 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -77,11 +76,11 @@ public class DriveTrain extends Subsystem {
 	    	return dist;
     }
     
-    public double getLeftRightDistance(){
+    public double getRightwardDistance(){
 	    	int countR = cANTalonBackRight.getSensorCollection().getQuadraturePosition();
 	    	int countL = cANTalonBackLeft.getSensorCollection().getQuadraturePosition();
 
-	    	double dist = - (countL + countR)/2 * inchesPerEncCountLR;
+	    	double dist = (countL + countR)/2 * inchesPerEncCountLR;
 	    	return dist;
     }
    
@@ -110,8 +109,8 @@ public class DriveTrain extends Subsystem {
     public void periodic() {
         // Put code here to be run every loop
 		SmartDashboard.putNumber("heading", getHeading());
-		SmartDashboard.putNumber("fwdBackDistance", Robot.driveTrain.getFwdBwdDistance());
-		SmartDashboard.putNumber("leftRightDistance", Robot.driveTrain.getLeftRightDistance());
+		SmartDashboard.putNumber("forwardDistance", Robot.driveTrain.getFwdBwdDistance());
+		SmartDashboard.putNumber("rightwardDistance", Robot.driveTrain.getRightwardDistance());
     }
 
     // Put methods for controlling this subsystem
@@ -122,7 +121,7 @@ public class DriveTrain extends Subsystem {
     		mecanumDrive1.driveCartesian(leftRightCommand, fwdBackCommand, yawCommand);
     }
 
-    public void keepHeadingDrive(double fwdBackCommand, double leftRightCommand, double heading)
+    public void keepHeadingDrive(double forwardCommand, double rightwardCommand, double heading)
     {
 		double angle = Robot.driveTrain.getHeading();
 		double currentAngularRate = Robot.driveTrain.getAngularRate();
@@ -132,7 +131,7 @@ public class DriveTrain extends Subsystem {
 		SmartDashboard.putNumber("angle_error", angle_error);
 		SmartDashboard.putNumber("commanded heading", heading);
 
-    		mecanumDrive1.driveCartesian(leftRightCommand, fwdBackCommand, yawCommand);
+    		mecanumDrive1.driveCartesian(rightwardCommand, forwardCommand, yawCommand);
     }
 
 	public void stop() {

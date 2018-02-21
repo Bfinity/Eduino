@@ -11,10 +11,8 @@
 
 package org.usfirst.frc4680.Eduino.commands;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc4680.Eduino.Robot;
-import org.usfirst.frc4680.Eduino.subsystems.DriveTrain;
 
 /**
  *

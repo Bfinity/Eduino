@@ -15,6 +15,7 @@ public class StrafeToSwitch extends DriveDeltaXY {
     protected void initialize() {
     		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		System.out.println("got game data: " + gameData);
         if(gameData.length() > 0)
         {
 		  if(gameData.charAt(0) == 'L')
