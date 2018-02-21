@@ -5,7 +5,11 @@ import edu.wpi.first.wpilibj.DriverStation;
 
 public class StrafeToSwitch extends DriveDeltaXY {
 
-	public static final double strafeDistance = 100.0;
+	double strafeDistance;
+	
+	public StrafeToSwitch(double distance) {
+		strafeDistance = distance;
+	}
 	
     // Called just before this Command runs the first time
     protected void initialize() {

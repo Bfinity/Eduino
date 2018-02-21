@@ -14,10 +14,10 @@ public class LongArmPosition extends PIDCommand {
     public static final int SCALE_HEIGHT = 130;
 
 	public LongArmPosition(int target) {
-    		super("PIDCommand1", 1.0, 0.0, 0.0, 0.02);
+    		super("PIDCommand1", 0.5, 0.0, 0.0, 0.02);
         getPIDController().setContinuous(false);
         getPIDController().setAbsoluteTolerance(5.0);
-        getPIDController().setOutputRange(-1.0, 1.0);
+        getPIDController().setOutputRange(-0.5, 0.5);
         getPIDController().setSetpoint((double) target);
         
         requires(Robot.longArm);

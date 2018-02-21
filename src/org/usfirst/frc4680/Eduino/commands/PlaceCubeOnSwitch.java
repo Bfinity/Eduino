@@ -21,10 +21,10 @@ import org.usfirst.frc4680.Eduino.Robot;
 public class PlaceCubeOnSwitch extends CommandGroup {
 
     public PlaceCubeOnSwitch() {
-    		addSequential(new DriveDeltaXY(40.0, 0.0));
-    		//addParallel(new LongArmPosition(LongArmPosition.SWITCH_HEIGHT));
-    		addSequential(new StrafeToSwitch());
-    		addSequential(new DriveDeltaXY(40.0, 0.0));
+    		addSequential(new DriveDeltaXY(48.0, 0.0));
+    		addParallel(new LongArmPosition(LongArmPosition.SWITCH_HEIGHT));
+    		addSequential(new StrafeToSwitch(54));
+    		addSequential(new DriveDeltaXY(60.0, 0.0));
     		addSequential(new GrabberOpen());
     }
 
