@@ -146,6 +146,12 @@ public class DriveTrain extends Subsystem {
 		return delta;
     }
 
+	public void resetPosition() {
+		gyro.reset();
+		cANTalonBackRight.getSensorCollection().setQuadraturePosition(0, 0);
+		cANTalonBackLeft.getSensorCollection().setQuadraturePosition(0, 0);
+	}
+
 
 }
 
