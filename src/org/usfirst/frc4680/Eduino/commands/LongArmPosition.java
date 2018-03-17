@@ -10,14 +10,14 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class LongArmPosition extends PIDCommand {
 	
     public static final int FLOOR_HEIGHT = 0;
-    public static final int SWITCH_HEIGHT = 90;
+    public static final int SWITCH_HEIGHT = 120;
     public static final int SCALE_HEIGHT = 130;
 
 	public LongArmPosition(int target) {
     		super("PIDCommand1", 0.5, 0.0, 0.0, 0.02);
         getPIDController().setContinuous(false);
         getPIDController().setAbsoluteTolerance(5.0);
-        getPIDController().setOutputRange(-0.4, 0.8);
+        getPIDController().setOutputRange(-0.4, 0.7);
         getPIDController().setSetpoint((double) target);
         
         requires(Robot.longArm);

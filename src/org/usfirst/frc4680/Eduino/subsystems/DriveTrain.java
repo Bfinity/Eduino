@@ -147,9 +147,11 @@ public class DriveTrain extends Subsystem {
     }
 
 	public void resetPosition() {
+		// TODO Auto-generated method stub
 		gyro.reset();
 		cANTalonBackRight.getSensorCollection().setQuadraturePosition(0, 0);
 		cANTalonBackLeft.getSensorCollection().setQuadraturePosition(0, 0);
+		
 	}
 
 

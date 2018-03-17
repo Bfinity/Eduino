@@ -22,7 +22,7 @@ public class StrafeToSwitch extends DriveDeltaXY {
 		  {
 			deltaY = - strafeDistance;
 		  } else {
-			deltaY = strafeDistance;
+			deltaY = strafeDistance-10;
 		  }
         }
         

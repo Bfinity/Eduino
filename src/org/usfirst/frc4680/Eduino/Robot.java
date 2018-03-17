@@ -103,8 +103,8 @@ public class Robot extends TimedRobot {
 
     @Override
     public void autonomousInit() {
-    		Robot.longArm.setPosition(0);
-    		Robot.driveTrain.resetPosition();
+    	Robot.longArm.setPosition(0);
+    	Robot.driveTrain.resetPosition();
         autonomousCommand = chooser.getSelected();
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
