@@ -10,11 +10,13 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class LongArmPosition extends PIDCommand {
 	
     public static final int FLOOR_HEIGHT = 0;
-    public static final int SWITCH_HEIGHT = 120;
-    public static final int SCALE_HEIGHT = 130;
+    public static final int SWITCH_HEIGHT = 60;
+    public static final int SCALE_HEIGHT = 110;
+    int target;
 
-	public LongArmPosition(int target) {
-    		super("PIDCommand1", 0.5, 0.0, 0.0, 0.02);
+	public LongArmPosition(int tgt) {
+    	super("PIDCommand1", 0.5, 0.0, 0.0, 0.02);
+		target = tgt;
         getPIDController().setContinuous(false);
         getPIDController().setAbsoluteTolerance(5.0);
         getPIDController().setOutputRange(-0.4, 0.7);
@@ -25,10 +27,12 @@ public class LongArmPosition extends PIDCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        getPIDController().setSetpoint((double) target);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//System.out.println("LongArmPosition: " + target + " " + Robot.longArm.getPosition());
     }
     
     // Make this return true when this Command no longer needs to run execute()
