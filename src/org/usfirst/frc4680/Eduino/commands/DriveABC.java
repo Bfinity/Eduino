@@ -41,29 +41,21 @@ public class DriveABC extends DriveDeltaXY {
 		  }
         }
 		  
-		  if(ourSwitch == true && ourScale == false ) {
-			  deltaX = switchDistance;
-			  deltaY = 0;
-		  } else if(ourSwitch == false && ourScale == true  ){
+		  if(ourScale == true ){
 			  deltaX = scaleDistance;
 			  if(mySide == 'R') {
 				  deltaY = 14;
 			  } else {
 				  deltaY = -14;
 			  }
-		  } else if( ourSwitch == true && ourScale == true){
+		  } else if( ourSwitch == true ){
 			  deltaX = switchDistance;
 			  deltaY = 0;
-		  } else if(ourSwitch == false && ourScale == false){
+		  } else {
 			  deltaX = fallBackDistance;
 			  deltaY = 0;
 		  }
 		  
-        
-
-		  
           super.initialize();
-       
-   
     }
 }
