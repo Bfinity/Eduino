@@ -97,7 +97,7 @@ public class RobotMap {
         grabberGrabberValve = new DoubleSolenoid(0, 1);
         LiveWindow.add(grabberGrabberValve);
         grabberCubeIsInPlaceSwitch = new DigitalInput(1);
-        longArmlowerLimitSwitch = new DigitalInput(4); //TODO confirm this is the right input!!!
+        longArmlowerLimitSwitch = new DigitalInput(7);
         
         climberClimberLimitSwitch = new DigitalInput(2);
         LiveWindow.addSensor("Climber", "ClimberLimitSwitch", climberClimberLimitSwitch);
