@@ -46,9 +46,12 @@ public class RobotMap {
     public static SpeedController longArmLongArmMotorVictorSP4;
     public static SpeedController longArmLongArmMotorVictorSP5;
     public static SpeedController longArmLongArmMotorVictorSP6;
+    
     public static DigitalInput longArmLongArmEncoder;
     public static DigitalInput longArmEncoderDirectionInput;
     public static DigitalOutput longArmEncoderDirectionOutput;
+    public static DigitalInput longArmlowerLimitSwitch;
+    
     public static DoubleSolenoid grabberGrabberValve;
     public static DigitalInput grabberCubeIsInPlaceSwitch;
     public static DigitalInput climberClimberLimitSwitch;
@@ -94,6 +97,7 @@ public class RobotMap {
         grabberGrabberValve = new DoubleSolenoid(0, 1);
         LiveWindow.add(grabberGrabberValve);
         grabberCubeIsInPlaceSwitch = new DigitalInput(1);
+        longArmlowerLimitSwitch = new DigitalInput(4); //TODO confirm this is the right input!!!
         
         climberClimberLimitSwitch = new DigitalInput(2);
         LiveWindow.addSensor("Climber", "ClimberLimitSwitch", climberClimberLimitSwitch);
