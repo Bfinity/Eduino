@@ -21,7 +21,7 @@ public class PlaceCubeOnSwitch extends CommandGroup {
     public PlaceCubeOnSwitch() {
     		addSequential(new FlipWrist());
     		//causes the wrist to flop down after moving forwards then backwards
-    		addSequential(new LongArmPosition(LongArmPosition.SWITCH_HEIGHT), 3);
+    		addSequential(new MoveArmByTime(0.8, 1.2));
     		//arm raises to height to be over the scale
     		addSequential(new DriveDeltaXY(36.0, 0.0));
     		//Robot moves forward enough to avoid hitting the cubes

@@ -7,7 +7,7 @@ public class RightSideStart extends CommandGroup {
     public RightSideStart() {
 		addSequential(new FlipWrist());
 		//causes the wrist to flop down after moving forwards then backwards
-		addSequential(new LongArmPosition(LongArmPosition.SWITCH_HEIGHT), 3);
+		addSequential(new MoveArmByTime(0.8, 2.0));
 		addSequential(new DriveABC('R'));
 		addSequential(new SetHeight('R'));
 		addSequential(new TurnTo(-90));
