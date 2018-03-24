@@ -15,7 +15,7 @@ public class FlipWrist extends Command {
 	
     public FlipWrist() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        // eg. requires(long arm);
     }
 
     // Called just before this Command runs the first time

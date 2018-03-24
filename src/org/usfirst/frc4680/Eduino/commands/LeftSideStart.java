@@ -11,7 +11,7 @@ public class LeftSideStart extends CommandGroup {
     			addSequential(new DriveABC('L'));
     			addSequential(new SetHeight('L'));
     			addSequential(new TurnTo(90));
-    			addSequential(new DriveDeltaXY(4, 0));
+    			addSequential(new DriveDeltaXY(10, 0));
     			addSequential(new Score('L'));
     			addSequential(new DriveDeltaXY(-10,0));
     	}

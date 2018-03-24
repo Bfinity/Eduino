@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class LongArmPosition extends PIDCommand {
 	
     public static final int FLOOR_HEIGHT = 0;
-    public static final int SWITCH_HEIGHT = 60;
+    public static final int SWITCH_HEIGHT = 70;
     public static final int SCALE_HEIGHT = 110;
     int target;
 

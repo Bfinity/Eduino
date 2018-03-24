@@ -11,7 +11,7 @@ public class RightSideStart extends CommandGroup {
 		addSequential(new DriveABC('R'));
 		addSequential(new SetHeight('R'));
 		addSequential(new TurnTo(-90));
-		addSequential(new DriveDeltaXY(4, 0));
+		addSequential(new DriveDeltaXY(10, 0));
 		addSequential(new Score('R'));
 		addSequential(new DriveDeltaXY(-10,0));
     }

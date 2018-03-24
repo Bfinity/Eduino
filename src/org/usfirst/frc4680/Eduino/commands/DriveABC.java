@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveABC extends DriveDeltaXY {
 
     final double switchDistance = 100;
-    final double fallBackDistance = 150;
-    final double scaleDistance = 260;
+    final double fallBackDistance = 170;
+    final double scaleDistance = 270;
     char mySide;
     
     public DriveABC(char side) {
@@ -44,9 +44,9 @@ public class DriveABC extends DriveDeltaXY {
 		  if(ourScale == true ){
 			  deltaX = scaleDistance;
 			  if(mySide == 'R') {
-				  deltaY = 14;
+				  deltaY = 20;
 			  } else {
-				  deltaY = -14;
+				  deltaY = -20;
 			  }
 		  } else if( ourSwitch == true ){
 			  deltaX = switchDistance;

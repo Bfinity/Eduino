@@ -94,9 +94,9 @@ public class LongArm extends Subsystem {
     public void move(double commandSpeed){
     		speed = commandSpeed;
     		
-    		if(lowerLimitSwitch.get() == false) {
-    			speed = Math.max(speed, -0.1);
-    		}
+//    		if(lowerLimitSwitch.get() == false) {
+//    			speed = Math.max(speed, -0.1);
+//    		}
     }
     
     public void stop() {
