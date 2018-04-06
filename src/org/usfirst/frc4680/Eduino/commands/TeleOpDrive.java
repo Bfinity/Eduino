@@ -55,21 +55,24 @@ public class TeleOpDrive extends Command {
 	    	double scaledfwdBack = fwdBackCommand * Math.abs(fwdBackCommand);
 	    	double scaledleftRight = leftRightCommand * Math.abs(leftRightCommand);
     	
-		if(Robot.oi.driveStick.getRawButton(1)) {
-			Robot.driveTrain.keepHeadingDrive(scaledfwdBack, scaledleftRight, heading);
+		if(Robot.oi.driveStick.getRawButton(2)) {
+			Robot.driveTrain.brake(true);
 		} else {
-			Robot.driveTrain.teleopDrive(scaledfwdBack, scaledleftRight, scaledYaw);
-			heading = Robot.driveTrain.getHeading();
-		}
+			Robot.driveTrain.brake(false);
+			
+			if(Robot.oi.driveStick.getRawButton(1)) {
 		
-		if(Robot.oi.manipulatorStick.getRawButtonPressed(5)) {
-			Robot.grabber.open();
+				if( Math.abs(fwdBackCommand) > Math.abs(leftRightCommand) ) {
+					scaledleftRight = 0;
+				} else {
+					scaledfwdBack = 0;
+				}
+				Robot.driveTrain.keepHeadingDrive(scaledfwdBack, scaledleftRight, heading);
+			} else {
+				Robot.driveTrain.teleopDrive(scaledfwdBack, scaledleftRight, scaledYaw);
+				heading = Robot.driveTrain.getHeading();
+			}
 		}
-		
-		if(Robot.oi.manipulatorStick.getRawButtonPressed(6)) {
-			Robot.grabber.close();
-		}
-		
 		
     }
 
