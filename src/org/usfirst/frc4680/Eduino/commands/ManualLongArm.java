@@ -22,7 +22,19 @@ public class ManualLongArm extends Command {
     protected void execute() {
 		double longArmInput = -Robot.oi.manipulatorStick.getRawAxis(1);
 		double scaledLongArmInput = longArmInput * Math.abs(longArmInput);
+		if(scaledLongArmInput < 0) {
+		    scaledLongArmInput *= 0.5;
+		}
 		Robot.longArm.move(scaledLongArmInput);
+		
+        if(Robot.oi.manipulatorStick.getRawButtonPressed(5)) {
+            Robot.grabber.open();
+        }
+        
+        if(Robot.oi.manipulatorStick.getRawButtonPressed(6)) {
+            Robot.grabber.close();
+        }
+        		
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -11,7 +11,7 @@ public class LongArmPosition extends PIDCommand {
 	
     public static final int FLOOR_HEIGHT = 0;
     public static final int SWITCH_HEIGHT = 86;
-    public static final int SCALE_HEIGHT = 140;
+    public static final int SCALE_HEIGHT = 137;
     int target;
 
 	public LongArmPosition(int tgt) {

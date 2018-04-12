@@ -33,6 +33,7 @@ public class DriveDeltaXY extends Command {
     public DriveDeltaXY(double forwardDist, double rightwardDist) {
     		deltaX = forwardDist;
     		deltaY = rightwardDist;
+    		System.out.println("DriveDeltaXY fwd: " + deltaX + "right: " + deltaY);
     }
     
     // Called just before this Command runs the first time
