@@ -33,7 +33,6 @@ public class DriveDeltaXY extends Command {
     public DriveDeltaXY(double forwardDist, double rightwardDist) {
     		deltaX = forwardDist;
     		deltaY = rightwardDist;
-    		System.out.println("DriveDeltaXY fwd: " + deltaX + "right: " + deltaY);
     }
     
     // Called just before this Command runs the first time
@@ -42,6 +41,10 @@ public class DriveDeltaXY extends Command {
 		finalY = Robot.driveTrain.getRightwardDistance() + deltaY;
 		heading = Robot.driveTrain.getHeading();
 		startTime = RobotController.getFPGATime();
+        System.out.println(this.getName() + " fwd: " + deltaX + "right: " + deltaY);
+        System.out.printf("Inertial Position x = %4.0f y = %4.0f\n",
+                Robot.nav.getX(), Robot.nav.getY());
+        Robot.driveTrain.brake(false);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -72,6 +75,9 @@ public class DriveDeltaXY extends Command {
     // Called once after isFinished returns true
     protected void end() {
     		Robot.driveTrain.stop();
+        System.out.printf("Inertial Position x = %4.0f y = %4.0f\n",
+                Robot.nav.getX(), Robot.nav.getY());
+
     }
 
     // Called when another command which requires one or more of the same
