@@ -15,7 +15,7 @@ public class LongArmPosition extends PIDCommand {
     int target;
 
 	public LongArmPosition(int tgt) {
-    	super("PIDCommand1", 0.5, 0.0, 0.0, 0.02);
+    	super("LongArmPID", 0.5, 0.001, 0.0, 0.02);
 		target = tgt;
         getPIDController().setContinuous(false);
         getPIDController().setAbsoluteTolerance(5.0);
@@ -42,12 +42,14 @@ public class LongArmPosition extends PIDCommand {
 
     // Called once after isFinished returns true
     protected void end() {
+    		System.out.println(this.getName() + " end() pos:" + Robot.longArm.getPosition());
     		getPIDController().disable();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+		System.out.println(this.getName() + " interrupted() pos:" + Robot.longArm.getPosition());
     	getPIDController().disable();
     }
 

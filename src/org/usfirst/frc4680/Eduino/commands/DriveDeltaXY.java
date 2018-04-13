@@ -9,14 +9,14 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveDeltaXY extends Command {
 	
-	public static final double maxSpeed   = 1.0;
-	public static final double minSpeedFB   = 0.18;
-	public static final double minSpeedLR   = 0.3;
-	public static final double rampUpTimeFB = 1.0;	
-	public static final double rampUpTimeLR = 1.1;	
-	public static final double rampDownDistanceFB = 36.0;
-	public static final double rampDownDistanceLR = 24.0;
-	public static final double closeEnough = 2.0;
+	public double maxSpeed   = 1.0;
+	public double minSpeedFB   = 0.18;
+	public double minSpeedLR   = 0.3;
+	public double rampUpTimeFB = 1.0;	
+	public double rampUpTimeLR = 1.1;	
+	public double rampDownDistanceFB = 36.0;
+	public double rampDownDistanceLR = 24.0;
+	public double closeEnough = 2.0;
 
 	double finalX;
 	double finalY;
@@ -42,8 +42,6 @@ public class DriveDeltaXY extends Command {
 		heading = Robot.driveTrain.getHeading();
 		startTime = RobotController.getFPGATime();
         System.out.println(this.getName() + " fwd: " + deltaX + "right: " + deltaY);
-        System.out.printf("Inertial Position x = %4.0f y = %4.0f\n",
-                Robot.nav.getX(), Robot.nav.getY());
         Robot.driveTrain.brake(false);
     }
 
@@ -75,8 +73,6 @@ public class DriveDeltaXY extends Command {
     // Called once after isFinished returns true
     protected void end() {
     		Robot.driveTrain.stop();
-        System.out.printf("Inertial Position x = %4.0f y = %4.0f\n",
-                Robot.nav.getX(), Robot.nav.getY());
 
     }
 
