@@ -100,6 +100,7 @@ public class LongArm extends Subsystem {
     		longArmMotorVictorSP6.set(-speed);
     		
     		SmartDashboard.putNumber("LongArm Position", position);
+    		
 }
 
     // Put methods for controlling this subsystem
