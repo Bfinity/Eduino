@@ -19,15 +19,15 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class PlaceCubeOnSwitch extends CommandGroup {
 
     public PlaceCubeOnSwitch() {
-    		addSequential(new FlipWrist());
+    		addSequential(new FlipWrist(), 2);
     		//causes the wrist to flop down after moving forwards then backwards
     		addSequential(new LongArmPosition(LongArmPosition.SWITCH_HEIGHT), 3);
     		//arm raises to height to be over the scale
-    		addSequential(new DriveDeltaXY(36.0, 0.0));
+    		//addSequential(new DriveDeltaXY(36.0, 0.0));
     		//Robot moves forward enough to avoid hitting the cubes
-    		addSequential(new StrafeToSwitch(90));
+    		addSequential(new StrafeToSwitch(90),3);
     		//Robot moves left or right 
-    		addSequential(new DriveDeltaXY(60.0, 0.0));
+    		addSequential(new DriveDeltaXY(60.0, 0.0),3);
     		//drives forward to make up the distance and approach cube to prepare drop
     		addSequential(new GrabberOpen());
     		//releases cube

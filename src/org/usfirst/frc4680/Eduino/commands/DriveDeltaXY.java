@@ -11,7 +11,7 @@ public class DriveDeltaXY extends Command {
 	
 	public double maxSpeed   = 1.0;
 	public double minSpeedFB   = 0.18;
-	public double minSpeedLR   = 0.3;
+	public double minSpeedLR   = 0.1;
 	public double rampUpTimeFB = 1.0;	
 	public double rampUpTimeLR = 1.1;	
 	public double rampDownDistanceFB = 36.0;
@@ -73,12 +73,13 @@ public class DriveDeltaXY extends Command {
     // Called once after isFinished returns true
     protected void end() {
     		Robot.driveTrain.stop();
-
+    		System.out.println(this.getName() + " end()");
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+		System.out.println(this.getName() + " interrupted()");
     	Robot.driveTrain.stop();
     }
     

@@ -23,7 +23,7 @@ public class ManualLongArm extends Command {
 		double longArmInput = -Robot.oi.manipulatorStick.getRawAxis(1);
 		double scaledLongArmInput = longArmInput * Math.abs(longArmInput);
 		if(scaledLongArmInput < 0) {
-		    scaledLongArmInput *= 0.5;
+		    scaledLongArmInput *= 0.7;
 		}
 		Robot.longArm.move(scaledLongArmInput);
 		

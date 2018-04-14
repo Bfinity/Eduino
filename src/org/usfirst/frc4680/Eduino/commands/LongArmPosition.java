@@ -27,6 +27,7 @@ public class LongArmPosition extends PIDCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println(this.getName() + " target: " + target + " startpos:" + Robot.longArm.getPosition());
         getPIDController().setSetpoint((double) target);
     }
 

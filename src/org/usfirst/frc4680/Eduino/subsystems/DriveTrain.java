@@ -56,6 +56,9 @@ public class DriveTrain extends Subsystem {
     static final double kDgain =  0.005; /* percent throttle per angular velocity dps */
 
     private boolean brakeState = false;
+    
+    public int countL;
+    public int countR;
 
     
     public DriveTrain(){
@@ -71,8 +74,8 @@ public class DriveTrain extends Subsystem {
     }
     
     public double getFwdBwdDistance(){
-	    	int countR = cANTalonBackRight.getSensorCollection().getQuadraturePosition();
-	    	int countL = -cANTalonBackLeft.getSensorCollection().getQuadraturePosition();
+	        countR = cANTalonBackRight.getSensorCollection().getQuadraturePosition();
+	    	countL = -cANTalonBackLeft.getSensorCollection().getQuadraturePosition();
 	    	
 	    	double dist = (countL + countR)/2 * inchesPerEncCountFB;
 	    	return dist;
@@ -132,8 +135,9 @@ public class DriveTrain extends Subsystem {
 		
 		SmartDashboard.putNumber("angle_error", angle_error);
 		SmartDashboard.putNumber("commanded heading", heading);
+		//System.out.println("keepHeadingDrive: " + forwardCommand +","+ rightwardCommand +","+ heading  +","+ angle_error); 
 
-    		mecanumDrive1.driveCartesian(rightwardCommand, forwardCommand, yawCommand);
+        mecanumDrive1.driveCartesian(rightwardCommand, forwardCommand, yawCommand);
     }
 
 	public void stop() {

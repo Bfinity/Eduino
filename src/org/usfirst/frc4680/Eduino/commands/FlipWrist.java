@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class FlipWrist extends DriveDeltaXY {
     protected void initialize() {
-        deltaX = 36;
+        deltaX = 28;
         deltaY = 0;
-        rampDownDistanceFB = 24;
+        rampDownDistanceFB = 12;
         rampUpTimeFB = 0.25;
         super.initialize();
     }
