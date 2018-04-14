@@ -28,6 +28,7 @@ public class LongArmPosition extends PIDCommand {
     // Called just before this Command runs the first time
     protected void initialize() {
     	System.out.println(this.getName() + " target: " + target + " startpos:" + Robot.longArm.getPosition());
+    	    Robot.longArm.encoderThreadRun(true);
         getPIDController().setSetpoint((double) target);
     }
 
@@ -45,13 +46,15 @@ public class LongArmPosition extends PIDCommand {
     protected void end() {
     		System.out.println(this.getName() + " end() pos:" + Robot.longArm.getPosition());
     		getPIDController().disable();
+    		Robot.longArm.encoderThreadRun(false);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
 		System.out.println(this.getName() + " interrupted() pos:" + Robot.longArm.getPosition());
-    	getPIDController().disable();
+    	    getPIDController().disable();
+        Robot.longArm.encoderThreadRun(false);
     }
 
 	@Override
