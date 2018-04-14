@@ -47,6 +47,7 @@ public class LongArm extends Subsystem {
     private boolean encoderPrevious;
     double speed;
     Thread encoderThread;
+    boolean runThreadFlag;
     
     public LongArm() {
         position = 0;
@@ -54,6 +55,7 @@ public class LongArm extends Subsystem {
         speed = 0.0;
         encoderThread = new Thread(() -> {
             while (!Thread.interrupted()) {
+                if(runThreadFlag){
                 boolean encoderFlag = longArmEncoder.get();
                 if(encoderFlag ^ encoderPrevious){
                     if(speed > 0.0) {
@@ -62,6 +64,7 @@ public class LongArm extends Subsystem {
                         position--;
                     }
                     encoderPrevious = encoderFlag;
+                }
                 }
                 try {
                     Thread.sleep(5);
@@ -120,4 +123,9 @@ public class LongArm extends Subsystem {
 	public void setPosition(int position) {
 		this.position = position;
 	}
+
+    public void runEncoderThread(boolean b) {
+        runThreadFlag = b;
+        
+    }
 }
