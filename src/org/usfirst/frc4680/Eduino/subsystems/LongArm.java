@@ -46,23 +46,28 @@ public class LongArm extends Subsystem {
     private volatile int position;
     private boolean encoderPrevious;
     double speed;
+    boolean encoderThreadPause;
     Thread encoderThread;
     
     public LongArm() {
         position = 0;
         encoderPrevious = false;
         speed = 0.0;
+        encoderThreadPause = true;
         encoderThread = new Thread(() -> {
             while (!Thread.interrupted()) {
-                boolean encoderFlag = longArmEncoder.get();
-                if(encoderFlag ^ encoderPrevious){
-                    if(speed > 0.0) {
-                        position++;
-                    } else {
-                        position--;
+                if(!encoderThreadPause) {
+                    boolean encoderFlag = longArmEncoder.get();
+                    if(encoderFlag ^ encoderPrevious){
+                        if(speed > 0.0) {
+                            position++;
+                        } else {
+                            position--;
+                        }
+                        encoderPrevious = encoderFlag;
                     }
-                    encoderPrevious = encoderFlag;
                 }
+                
                 try {
                     Thread.sleep(5);
                 } catch (InterruptedException e) {
@@ -72,6 +77,10 @@ public class LongArm extends Subsystem {
         });
         encoderThread.start();
     	}
+    
+    public void encoderThreadPause(boolean pause) {
+        encoderThreadPause = pause;
+    }
     	
     @Override
     public void initDefaultCommand() {
